@@ -8,10 +8,10 @@ public class UnionFind {
 	public UnionFind(int size) {
 		this.size = size;
 		
-		rank = new int[size << 1];
-		parent = new int[size << 1];
+		rank = new int[size];
+		parent = new int[size];
 		
-		for(int i = 0; i<size << 1; i++) {
+		for(int i = 0; i<size; i++) {
 			parent[i] = i;
 		}
 	}
