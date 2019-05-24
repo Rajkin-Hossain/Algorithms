@@ -31,6 +31,7 @@ public class Trie {
 			for(int i = 0; i<index; i++){
 				System.out.print(printChar[i]);
 			}
+			
 			System.out.println();
 		}
 		
