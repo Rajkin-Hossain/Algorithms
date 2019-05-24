@@ -1,6 +1,6 @@
 public class Treap {
 	
-	Node root;
+    Node root;
 	
     int length;
     int g_seed;
