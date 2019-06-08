@@ -9,6 +9,15 @@ public class ContestFormat{
     //FastInput k = new FastInput("C:/Users/rajkin.h/Desktop/input.txt");
     FastOutput z = new FastOutput();
     
+    void startProgram() {
+    	while(k.hasNext()) {
+    		
+    	}
+    	
+    	z.flush();
+    	System.exit(0);
+    }
+    
     public static void main(String [] args) throws IOException {
         new Thread(null, new Runnable(){
             public void run(){
@@ -21,17 +30,8 @@ public class ContestFormat{
             }
         },"Main",1<<28).start();
     }
-
-    void startProgram() {
-    	while(k.hasNext()) {
-    		
-    	}
-    	
-    	z.flush();
-    	System.exit(0);
-    }
-   
     
+
     /* MARK: FastInput and FastOutput */
  
     class FastInput {
@@ -104,5 +104,9 @@ public class ContestFormat{
  
     class FastOutput extends PrintWriter {
           FastOutput() { super(new BufferedOutputStream(System.out)); }
+          
+  	    public void debug(Object...obj) {
+	        System.err.println(Arrays.deepToString(obj));
+	    }
     }
 }
