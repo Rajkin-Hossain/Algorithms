@@ -103,10 +103,12 @@ public class ContestFormat{
     }
  
     class FastOutput extends PrintWriter {
-          FastOutput() { super(new BufferedOutputStream(System.out)); }
+		FastOutput() { 
+			super(new BufferedOutputStream(System.out)); 
+		}
           
-  	    public void debug(Object...obj) {
-	        System.err.println(Arrays.deepToString(obj));
-	    }
+		public void debug(Object...obj) {
+		    System.err.println(Arrays.deepToString(obj));
+		}
     }
 }
