@@ -1,11 +1,20 @@
 import java.util.*;
 public class CodeSnippet {
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
+	int[] getArray(ArrayList<Integer> list) {
+		int [] array = new int[list.size()];
+		for(int i = 0; i<list.size(); i++) {
+			array[i] = list.get(i);
+		}
 		
-		Integer [] array = {6, 2, 7 -10};
+		return array;
+	}
+	
+	void sortInReverseOrder(Integer [] array) {
 		Arrays.sort(array, Comparator.reverseOrder());
-		
-		PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+	}
+	
+	PriorityQueue<Integer> getReverseOrderPriorityQueue() {
+		return new PriorityQueue<>(Collections.reverseOrder());
 	}
 }
