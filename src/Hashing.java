@@ -1,12 +1,12 @@
 public class Hashing {
-    long prime = 33;
+    long prime = 31;
     long [] primes;
     
     public void computePrimes(){
-        primes[1] = prime;
-        for(int i = 2; i<primes.length; i++){
+        primes[0] = 1;
+        for(int i = 1; i<primes.length; i++){
             //primes[i] = (primes[i-1] * prime);
-            primes[i] = (primes[i-1] << (long) 5) + primes[i-1];
+            primes[i] = (primes[i-1] << 5L) - primes[i-1];
         }
     }
     
@@ -14,7 +14,7 @@ public class Hashing {
         long hash = 0;
         for(int i = 0; i<name.length(); i++){
             //hash = (hash * prime) + name.charAt(i);
-            hash = ((hash << (long)5) + hash) + name.charAt(i);
+            hash = ((hash << 5L) - hash) + name.charAt(i);
         }
         
         return hash;
@@ -33,7 +33,7 @@ public class Hashing {
         long hash = 0;
         for(int i = 0; i<Math.min(textLength, patternLength); i++){
             //hash = (hash * prime) + A.charAt(i);
-            hash = ((hash << (long)5) + hash)  + text.charAt(i);
+            hash = ((hash << 5L) - hash)  + text.charAt(i);
             prefixHashes[i] = hash;
         }
         
@@ -42,7 +42,7 @@ public class Hashing {
         int start = 0;
         for(int i = Math.min(textLength, patternLength); i<textLength; i++){
             //hash = (hash * prime) + A.charAt(i);
-            hash = ((hash << (long)5) + hash)  + text.charAt(i);
+            hash = ((hash << 5L) - hash)  + text.charAt(i);
             
             prefixHashes[i] = hash;
             
