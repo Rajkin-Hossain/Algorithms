@@ -101,6 +101,49 @@ public class ContestFormat{
         long nextLong() {
             return Long.valueOf(nextToken());
         }
+        
+        int [] getInputIntegerArray(int n) {
+        	
+        	int [] input = new int[n];
+        	
+        	for(int i = 0; i<n; i++) {
+        		input[i] = nextInt();
+        	}
+        	
+        	return input;
+        }
+        
+        long [] getInputLongArray(int n) {
+        	
+        	long [] input = new long[n];
+        	for(int i = 0; i<n; i++) {
+        		input[i] = nextLong();
+        	}
+        	
+        	return input;
+        }
+        
+        int [] getInputIntegerArrayOneBasedIndex(int n) {
+        	
+        	int [] input = new int[n+1];
+        	
+        	for(int i = 1; i<=n; i++) {
+        		input[i] = nextInt();
+        	}
+        	
+        	return input;
+        }
+        
+        long [] getInputLongArrayOneBasedIndex(int n) {
+        	
+        	long [] input = new long[n+1];
+        	
+        	for(int i = 1; i<=n; i++) {
+        		input[i] = nextLong();
+        	}
+        	
+        	return input;
+        }
     }
  
     class FastOutput extends PrintWriter {
