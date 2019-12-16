@@ -102,7 +102,7 @@ public class ContestFormat{
             return Long.valueOf(nextToken());
         }
         
-        int [] getInputIntegerArray(int n) {
+        int [] getInputIntArray(int n) {
         	
         	int [] input = new int[n];
         	
@@ -116,6 +116,7 @@ public class ContestFormat{
         long [] getInputLongArray(int n) {
         	
         	long [] input = new long[n];
+        	
         	for(int i = 0; i<n; i++) {
         		input[i] = nextLong();
         	}
@@ -123,7 +124,7 @@ public class ContestFormat{
         	return input;
         }
         
-        int [] getInputIntegerArrayOneBasedIndex(int n) {
+        int [] getInputIntArrayOneBasedIndex(int n) {
         	
         	int [] input = new int[n+1];
         	
@@ -143,6 +144,22 @@ public class ContestFormat{
         	}
         	
         	return input;
+        }
+        
+        void fill2DIntArray(int [][] array, int value) {
+        	for(int i = 0; i<array.length; i++) {
+            	for(int j = 0; j<array[0].length; j++) {
+            		array[i][j] = value;
+            	}
+        	}
+        }
+        
+        void fill2DLongArray(long [][] array, long value) {
+        	for(int i = 0; i<array.length; i++) {
+            	for(int j = 0; j<array[0].length; j++) {
+            		array[i][j] = value;
+            	}
+        	}
         }
     }
  
