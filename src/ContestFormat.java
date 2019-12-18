@@ -161,6 +161,26 @@ public class ContestFormat{
             	}
         	}
         }
+        
+        void fill3DIntArray(int [][][] array, int value) {
+        	for(int i = 0; i<array.length; i++) {
+            	for(int j = 0; j<array[0].length; j++) {
+                	for(int k = 0; k<array[0][0].length; k++) {
+                		array[i][j][k] = value;
+                	}
+            	}
+        	}
+        }
+        
+        void fill3DLongArray(long [][][] array, long value) {
+        	for(int i = 0; i<array.length; i++) {
+            	for(int j = 0; j<array[0].length; j++) {
+                	for(int k = 0; k<array[0][0].length; k++) {
+                		array[i][j][k] = value;
+                	}
+            	}
+        	}
+        }
     }
  
     class FastOutput extends PrintWriter {
