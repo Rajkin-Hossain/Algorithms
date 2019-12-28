@@ -1,4 +1,4 @@
-public class Hashing {
+public class Hash {
     long prime = 31;
     long [] primes;
     
