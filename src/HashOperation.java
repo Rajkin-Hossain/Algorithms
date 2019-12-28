@@ -1,4 +1,4 @@
-public class Hash {
+public class HashOperation {
     long prime = 31;
     long [] primes;
     
