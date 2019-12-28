@@ -32,6 +32,29 @@ public class ContestFormat{
         },"Main",1<<28).start();
     }
     
+    static class Template {
+    	
+    	static <E> HashSet<E> generateSet(E [] y) {
+    		HashSet<E> set = new HashSet<E>();
+    		
+    		for(E key : y) {
+    			set.add(key);
+    		}
+    		
+    		return set;
+    	}
+    	
+    	static <E> HashMap<E, Integer> generateCountMap(E [] y) {
+    		HashMap<E, Integer> map = new HashMap<E, Integer>();
+    		
+    		for(E key : y) {
+    			map.putIfAbsent(key, 0);
+    			map.put(key, map.get(key) + 1);
+    		}
+    		
+    		return map;
+    	}
+    }
 
     /* MARK: FastInput and FastOutput */
  
@@ -146,7 +169,7 @@ public class ContestFormat{
         	return input;
         }
         
-        void fill2DIntArray(int [][] array, int value) {
+        <E> void fill2DArray(E [][] array, E value) {
         	for(int i = 0; i<array.length; i++) {
             	for(int j = 0; j<array[0].length; j++) {
             		array[i][j] = value;
@@ -154,15 +177,7 @@ public class ContestFormat{
         	}
         }
         
-        void fill2DLongArray(long [][] array, long value) {
-        	for(int i = 0; i<array.length; i++) {
-            	for(int j = 0; j<array[0].length; j++) {
-            		array[i][j] = value;
-            	}
-        	}
-        }
-        
-        void fill3DIntArray(int [][][] array, int value) {
+        <E> void fill3DArray(E [][][] array, E value) {
         	for(int i = 0; i<array.length; i++) {
             	for(int j = 0; j<array[0].length; j++) {
                 	for(int k = 0; k<array[0][0].length; k++) {
@@ -172,11 +187,13 @@ public class ContestFormat{
         	}
         }
         
-        void fill3DLongArray(long [][][] array, long value) {
+        <E> void fill4DArray(E [][][][] array, E value) {
         	for(int i = 0; i<array.length; i++) {
             	for(int j = 0; j<array[0].length; j++) {
                 	for(int k = 0; k<array[0][0].length; k++) {
-                		array[i][j][k] = value;
+                    	for(int l = 0; l<array[0][0][0].length; l++) {
+                    		array[i][j][k][l] = value;
+                    	}
                 	}
             	}
         	}
