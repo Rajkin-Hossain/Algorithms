@@ -7,10 +7,15 @@ import static java.lang.Math.*;
 public class ContestFormat{
    
     FastInput k = new FastInput(System.in);
-    //FastInput k = new FastInput("C:/Users/rajkin.h/Desktop/input.txt");
     FastOutput z = new FastOutput();
     
+    void takeInputsFromFile() {
+        k = new FastInput("/home/rajkin/Desktop/input.txt");
+    }
+    
     void startProgram() {
+    	takeInputsFromFile();
+    	
     	while(k.hasNext()) {
     		
     	}
