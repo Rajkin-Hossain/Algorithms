@@ -8,6 +8,7 @@ public class ContestFormat{
    
     FastInput k = new FastInput(System.in);
     FastOutput z = new FastOutput();
+    Template t = new Template();
     
     void takeInputsFromFile() {
         k = new FastInput("/home/rajkin/Desktop/input.txt");
@@ -40,9 +41,9 @@ public class ContestFormat{
     
     /* MARK: Template class implementation */
     
-    static class Template {
-    
-	    static HashSet<Integer> generateSet(int [] y) {
+    class Template {
+    	
+	    HashSet<Integer> generateSet(int [] y) {
 			HashSet<Integer> set = new HashSet<Integer>();
 			
 			for(Integer key : y) {
@@ -51,8 +52,18 @@ public class ContestFormat{
 			
 			return set;
 		}
+	    
+	    HashSet<Long> generateSet(long [] y) {
+			HashSet<Long> set = new HashSet<Long>();
+			
+			for(Long key : y) {
+				set.add(key);
+			}
+			
+			return set;
+		}
 		
-		static HashMap<Integer, Integer> generateCountMap(Integer [] y) {
+		HashMap<Integer, Integer> generateCountMap(Integer [] y) {
 			HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 			
 			for(Integer key : y) {
@@ -63,17 +74,7 @@ public class ContestFormat{
 			return map;
 		}
 		
-	    static HashSet<Long> generateSet(long [] y) {
-			HashSet<Long> set = new HashSet<Long>();
-			
-			for(Long key : y) {
-				set.add(key);
-			}
-			
-			return set;
-		}
-		
-		static HashMap<Long, Integer> generateCountMap(Long [] y) {
+		HashMap<Long, Integer> generateCountMap(Long [] y) {
 			HashMap<Long, Integer> map = new HashMap<Long, Integer>();
 			
 			for(Long key : y) {
@@ -84,14 +85,17 @@ public class ContestFormat{
 			return map;
 		}
 		
-		static int[] shrink(int[] a) {
+		int [] shrink(int[] a) {
 	        int n = a.length;
-	        long[] b = new long[n];
+	        long [] b = new long[n];
+	        
 	        for (int i = 0; i < n; i++) b[i] = (long) a[i] << 32 | i;
-	        shuffle(b);
-	        Arrays.sort(b);
+	        
+	        shuffleAndSort(b);
+	        
 	        int[] ret = new int[n];
 	        int p = 0;
+	        
 	        for (int i = 0; i < n; i++) {
 	            if (i > 0 && (b[i] ^ b[i - 1]) >> 32 != 0) p++;
 	            ret[(int) b[i]] = p;
@@ -100,17 +104,21 @@ public class ContestFormat{
 	        for (int i = 0; i < n; i++) {
 	            ret[i]++;
 	        }
+	        
 	        return ret;
 	    }
 		
-		static long[] shrink(long [] a) {
+		long [] shrink(long [] a) {
 	        int n = a.length;
 	        long[] b = new long[n];
+	        
 	        for (int i = 0; i < n; i++) b[i] = (long) a[i] << 32 | i;
-	        shuffle(b);
-	        Arrays.sort(b);
+	        
+	        shuffleAndSort(b);
+	        
 	        long [] ret = new long[n];
 	        int p = 0;
+	        
 	        for (int i = 0; i < n; i++) {
 	            if (i > 0 && (b[i] ^ b[i - 1]) >> 32 != 0) p++;
 	            ret[(int) b[i]] = p;
@@ -119,11 +127,13 @@ public class ContestFormat{
 	        for (int i = 0; i < n; i++) {
 	            ret[i]++;
 	        }
+	        
 	        return ret;
 	    }
 		
-	    static void shuffleAndSort(int [] a) {
+	    void shuffleAndSort(int [] a) {
 	        Random rnd = new Random();
+	        
 	        for (int i = a.length - 1; i >= 1; i--) {
 	            int j = rnd.nextInt(i + 1);
 	            int t = a[i];
@@ -134,8 +144,9 @@ public class ContestFormat{
 	        Arrays.sort(a);
 	    }
 	    
-	    static void shuffleAndSort(long [] a) {
+	    void shuffleAndSort(long [] a) {
 	        Random rnd = new Random();
+	        
 	        for (int i = a.length - 1; i >= 1; i--) {
 	            int j = rnd.nextInt(i + 1);
 	            long t = a[i];
@@ -145,26 +156,66 @@ public class ContestFormat{
 	        
 	        Arrays.sort(a);
 	    }
-	 
-	    static void shuffle(int [] a) {
-	        Random rnd = new Random();
-	        for (int i = a.length - 1; i >= 1; i--) {
-	            int j = rnd.nextInt(i + 1);
-	            int t = a[i];
-	            a[i] = a[j];
-	            a[j] = t;
-	        }
-	    }
 	    
-	    static void shuffle(long [] a) {
-	        Random rnd = new Random();
-	        for (int i = a.length - 1; i >= 1; i--) {
-	            int j = rnd.nextInt(i + 1);
-	            long t = a[i];
-	            a[i] = a[j];
-	            a[j] = t;
-	        }
-	    }
+        void fill2DArray(int [][] array, int value) {
+        	for(int i = 0; i<array.length; i++) {
+            	for(int j = 0; j<array[0].length; j++) {
+                	array[i][j] = value;
+            	}
+        	}
+        }
+        
+        void fill2DArray(long [][] array, long value) {
+        	for(int i = 0; i<array.length; i++) {
+            	for(int j = 0; j<array[0].length; j++) {
+                	array[i][j] = value;
+            	}
+        	}
+        }
+        
+        void fill3DArray(int [][][] array, int value) {
+        	for(int i = 0; i<array.length; i++) {
+            	for(int j = 0; j<array[0].length; j++) {
+                	for(int k = 0; k<array[0][0].length; k++) {
+                		array[i][j][k] = value;
+                	}
+            	}
+        	}
+        }
+        
+        void fill3DArray(long [][][] array, long value) {
+        	for(int i = 0; i<array.length; i++) {
+            	for(int j = 0; j<array[0].length; j++) {
+                	for(int k = 0; k<array[0][0].length; k++) {
+                		array[i][j][k] = value;
+                	}
+            	}
+        	}
+        }
+        
+        void fill4DArray(int [][][][] array, int value) {
+        	for(int i = 0; i<array.length; i++) {
+            	for(int j = 0; j<array[0].length; j++) {
+                	for(int k = 0; k<array[0][0].length; k++) {
+                    	for(int l = 0; l<array[0][0][0].length; l++) {
+                    		array[i][j][k][l] = value;
+                    	}
+                	}
+            	}
+        	}
+        }
+        
+        void fill4DArray(long [][][][] array, long value) {
+        	for(int i = 0; i<array.length; i++) {
+            	for(int j = 0; j<array[0].length; j++) {
+                	for(int k = 0; k<array[0][0].length; k++) {
+                    	for(int l = 0; l<array[0][0][0].length; l++) {
+                    		array[i][j][k][l] = value;
+                    	}
+                	}
+            	}
+        	}
+        }
     }
 
     
@@ -279,36 +330,6 @@ public class ContestFormat{
         	}
         	
         	return input;
-        }
-        
-        <E> void fill2DArray(E [][] array, E value) {
-        	for(int i = 0; i<array.length; i++) {
-            	for(int j = 0; j<array[0].length; j++) {
-            		array[i][j] = value;
-            	}
-        	}
-        }
-        
-        <E> void fill3DArray(E [][][] array, E value) {
-        	for(int i = 0; i<array.length; i++) {
-            	for(int j = 0; j<array[0].length; j++) {
-                	for(int k = 0; k<array[0][0].length; k++) {
-                		array[i][j][k] = value;
-                	}
-            	}
-        	}
-        }
-        
-        <E> void fill4DArray(E [][][][] array, E value) {
-        	for(int i = 0; i<array.length; i++) {
-            	for(int j = 0; j<array[0].length; j++) {
-                	for(int k = 0; k<array[0][0].length; k++) {
-                    	for(int l = 0; l<array[0][0][0].length; l++) {
-                    		array[i][j][k][l] = value;
-                    	}
-                	}
-            	}
-        	}
         }
     }
  
