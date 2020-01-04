@@ -63,10 +63,10 @@ public class ContestFormat{
 			return set;
 		}
 		
-		HashMap<Integer, Integer> generateCountMap(Integer [] y) {
+		HashMap<Integer, Integer> generateCountMap(int [] y) {
 			HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 			
-			for(Integer key : y) {
+			for(int key : y) {
 				map.putIfAbsent(key, 0);
 				map.put(key, map.get(key) + 1);
 			}
@@ -74,10 +74,10 @@ public class ContestFormat{
 			return map;
 		}
 		
-		HashMap<Long, Integer> generateCountMap(Long [] y) {
+		HashMap<Long, Integer> generateCountMap(long [] y) {
 			HashMap<Long, Integer> map = new HashMap<Long, Integer>();
 			
-			for(Long key : y) {
+			for(long key : y) {
 				map.putIfAbsent(key, 0);
 				map.put(key, map.get(key) + 1);
 			}
@@ -129,6 +129,36 @@ public class ContestFormat{
 	        }
 	        
 	        return ret;
+	    }
+		
+	    void shuffleAndSort(ArrayList<Integer> a) {
+	        Random rnd = new Random();
+	        
+	        int size = a.size();
+	        
+	        for (int i = size - 1; i >= 1; i--) {
+	            int j = rnd.nextInt(i + 1);
+	            int t = a.get(i);
+	            a.set(i, a.get(j));
+	            a.set(j, t);
+	        }
+	        
+	        Collections.sort(a);
+	    }
+		
+	    void shuffleAndSortLongList(ArrayList<Long> a) {
+	        Random rnd = new Random();
+	        
+	        int size = a.size();
+	        
+	        for (int i = size - 1; i >= 1; i--) {
+	            int j = rnd.nextInt(i + 1);
+	            long t = a.get(i);
+	            a.set(i, a.get(j));
+	            a.set(j, t);
+	        }
+	        
+	        Collections.sort(a);
 	    }
 		
 	    void shuffleAndSort(int [] a) {
