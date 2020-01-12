@@ -43,6 +43,18 @@ public class ContestFormat{
     
     class Template {
     	
+    	//assume that a and b cannot both be 0
+    	int gcd(int a, int b) {
+	    	if (b==0) return a;
+	    	
+	    	return gcd(b,a%b);
+    	}
+    	
+    	int lcm(int a, int b) {
+    		
+    		return b*a/gcd(a,b);
+    	}
+    	
 	    HashSet<Integer> generateSet(int [] y) {
 			HashSet<Integer> set = new HashSet<Integer>();
 			
@@ -131,6 +143,46 @@ public class ContestFormat{
 	        return ret;
 	    }
 		
+		int getMax(int [] a) {
+			int maxValue = Integer.MIN_VALUE;
+			
+			for(int v : a) {
+				maxValue = max(v, maxValue);
+			}
+			
+			return maxValue;
+		}
+		
+		long getMax(long [] a) {
+			long maxValue = Long.MIN_VALUE;
+			
+			for(long v : a) {
+				maxValue = max(v, maxValue);
+			}
+			
+			return maxValue;
+		}
+		
+		int getMin(int [] a) {
+			int minValue = Integer.MAX_VALUE;
+			
+			for(int v : a) {
+				minValue = min(v, minValue);
+			}
+			
+			return minValue;
+		}
+		
+		long getMin(long [] a) {
+			long minValue = Long.MAX_VALUE;
+			
+			for(long v : a) {
+				minValue = min(v, minValue);
+			}
+			
+			return minValue;
+		}
+		
 	    void shuffleAndSort(ArrayList<Integer> a) {
 	        Random rnd = new Random();
 	        
@@ -186,6 +238,32 @@ public class ContestFormat{
 	        
 	        Arrays.sort(a);
 	    }
+	    
+		int[] getIntArray(ArrayList<Integer> list) {
+			
+			int [] array = new int[list.size()];
+			
+			int size = array.length;
+			
+			for(int i = 0; i<size; i++) {
+				array[i] = list.get(i);
+			}
+			
+			return array;
+		}
+		
+		long[] getLongArray(ArrayList<Long> list) {
+			
+			long [] array = new long[list.size()];
+			
+			int size = array.length;
+			
+			for(int i = 0; i<size; i++) {
+				array[i] = list.get(i);
+			}
+			
+			return array;
+		}
 	    
         void fill2DArray(int [][] array, int value) {
         	for(int i = 0; i<array.length; i++) {
