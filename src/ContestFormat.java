@@ -44,6 +44,18 @@ public class ContestFormat{
     class Template {
     	
     	//assume that a and b cannot both be 0
+    	long gcd(long a, long b) {
+	    	if (b==0) return a;
+	    	
+	    	return gcd(b,a%b);
+    	}
+    	
+    	long lcm(long a, long b) {
+    		
+    		return b*a/gcd(a,b);
+    	}
+    	
+    	//assume that a and b cannot both be 0
     	int gcd(int a, int b) {
 	    	if (b==0) return a;
 	    	
