@@ -278,60 +278,48 @@ public class ContestFormat{
 		}
 	    
         void fill2DArray(int [][] array, int value) {
-        	for(int i = 0; i<array.length; i++) {
-            	for(int j = 0; j<array[0].length; j++) {
-                	array[i][j] = value;
-            	}
+        	for(int [] singleDimension : array) {
+        		Arrays.fill(singleDimension, value);
         	}
         }
         
         void fill2DArray(long [][] array, long value) {
-        	for(int i = 0; i<array.length; i++) {
-            	for(int j = 0; j<array[0].length; j++) {
-                	array[i][j] = value;
-            	}
+        	for(long [] singleDimension : array) {
+        		Arrays.fill(singleDimension, value);
         	}
         }
         
         void fill3DArray(int [][][] array, int value) {
-        	for(int i = 0; i<array.length; i++) {
-            	for(int j = 0; j<array[0].length; j++) {
-                	for(int k = 0; k<array[0][0].length; k++) {
-                		array[i][j][k] = value;
-                	}
+        	for(int [][] seconddimension : array) {
+            	for(int [] singleDimension : seconddimension) {
+            		Arrays.fill(singleDimension, value);
             	}
         	}
         }
         
         void fill3DArray(long [][][] array, long value) {
-        	for(int i = 0; i<array.length; i++) {
-            	for(int j = 0; j<array[0].length; j++) {
-                	for(int k = 0; k<array[0][0].length; k++) {
-                		array[i][j][k] = value;
-                	}
+        	for(long [][] seconddimension : array) {
+            	for(long [] singleDimension : seconddimension) {
+            		Arrays.fill(singleDimension, value);
             	}
         	}
         }
         
         void fill4DArray(int [][][][] array, int value) {
-        	for(int i = 0; i<array.length; i++) {
-            	for(int j = 0; j<array[0].length; j++) {
-                	for(int k = 0; k<array[0][0].length; k++) {
-                    	for(int l = 0; l<array[0][0][0].length; l++) {
-                    		array[i][j][k][l] = value;
-                    	}
+        	for(int [][][] thirthdimension : array) {
+            	for(int [][] seconddimension : thirthdimension) {
+                	for(int [] singleDimension : seconddimension) {
+                		Arrays.fill(singleDimension, value);
                 	}
             	}
         	}
         }
         
         void fill4DArray(long [][][][] array, long value) {
-        	for(int i = 0; i<array.length; i++) {
-            	for(int j = 0; j<array[0].length; j++) {
-                	for(int k = 0; k<array[0][0].length; k++) {
-                    	for(int l = 0; l<array[0][0][0].length; l++) {
-                    		array[i][j][k][l] = value;
-                    	}
+        	for(long [][][] thirthdimension : array) {
+            	for(long [][] seconddimension : thirthdimension) {
+                	for(long [] singleDimension : seconddimension) {
+                		Arrays.fill(singleDimension, value);
                 	}
             	}
         	}
